@@ -1,0 +1,13 @@
+{
+  "name": "skipbait",
+  "title": "SkipBait",
+  "id": "jid1-S3cC4cnpaerCSA",
+  "description": "SkipBait allows clickbait to be skipped over in daily web browsing.",
+  "author": "Sam Brenner (http://samjbrenner.com)",
+  "license": "MIT",
+  "version": "0.1",
+  "icon": "icon48.png",
+  "permissions": {
+    "cross-domain-content": ["https://skipbait.herokuapp.com"]
+  }
+}
