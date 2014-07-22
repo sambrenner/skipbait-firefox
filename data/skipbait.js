@@ -95,14 +95,16 @@
 		var $header = $('<h3>This article references multiple sources, please pick one:</h3>')
 			.css('font-family', 'Helvetica, Arial, sans-serif')
 			.css('font-size', '16px')
-			.css('font-weight', 'bold');
+			.css('font-weight', 'bold')
+			.css('margin-bottom', '10px');
 
 		var $sources = $('<ul></ul>')
 			.css('font-family', 'Helvetica, Arial, sans-serif')
 			.css('font-size', '12px');
 
 		for(var source in sources) {
-			$sources.append('<li><a class="skipbait-link" href="' + sources[source] + '">' + sources[source] + '</a></li>');
+			$sources.append('<li><a class="skipbait-link" href="' + sources[source] + '">' + sources[source] + '</a></li>')
+				.css('margin-bottom', '3px');
 		}
 
 		$sources.append('<li><a class="skipbait-link" href="' + origLink + '">Ignore SkipBait</a></li>');
