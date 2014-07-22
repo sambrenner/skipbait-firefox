@@ -19,4 +19,4 @@ These points address much larger issues than this project can solve, but I hope 
 
 Also
 ---
-The development of the Firefox plugin was made significantly easier thanks to Allison Burtch's [Internet Illuminator](https://github.com/allisonburtch/internet_Illuminator).
+The development of the Firefox plugin was made significantly easier than Mozilla's documentation would lead you to think thanks to Allison Burtch's [Internet Illuminator](https://github.com/allisonburtch/internet_Illuminator).
