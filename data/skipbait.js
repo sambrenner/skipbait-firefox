@@ -1,6 +1,11 @@
 (function() {
 	var clickEvent;
 
+	if(window.location.host.indexOf('facebook')) {
+		var links = document.getElementsByTagName('a');
+		for(var link in links) { links[link].onclick = null; }
+	}
+
 	window.onclick = function(e) {
 		var origLink;
 		var $target = $(e.target);
@@ -26,11 +31,19 @@
 			}
 		}
 
+		if(origLink.indexOf('l.facebook') > 0) {
+			origLink.replace('http://l.facebook.com/l.php?u=', '');
+			origLink.replace(/\&amp;.*/g, '');
+			origLink = decodeURIComponent(origLink);
+		}
+
 		//make sure the link is a link to a url and not a binding for JS
 		if(!origLink.match(/https?:\/\/*/g)) return true;
 
 		e.preventDefault();
 		clickEvent = e;
+
+		console.log("skipbait original link: " + origLink);
 
 		//hit the skipbait server
 		getSources(origLink, function(data) {
@@ -58,7 +71,7 @@
 		
 		if(skipRsp.sources.length > 1) {
 			//multiple sources - show popup
-			addPopup(clickEvent.clientX, clickEvent.clientY, skipRsp.sources, skipRsp.original_url);
+			addPopup(clickEvent.pageX, clickEvent.pageY, skipRsp.sources, skipRsp.original_url);
 		} else if (skipRsp.sources.length == 1) {
 			//one source - redirect to it
 			window.location.href = skipRsp.sources[0];
